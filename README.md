@@ -7,7 +7,7 @@ go to termenal
 2 - php artisan db:seed 
 
 
-there is account admin defaul
+there is account admin default
 
 email:bajamanabdo@gmail.com
 password:123456789
