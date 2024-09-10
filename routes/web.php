@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerReportsController;
 use App\Http\Controllers\InvoiceArchiveController;
+use App\Http\Controllers\InvoiceReportsController;
 use App\Http\Controllers\InvoicesAttachmentsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\InvoicesDetailsController;
@@ -63,7 +65,15 @@ Route::get('view_file/{invoice_number}/{file_name}',[InvoicesAttachmentsControll
 Route::get('DownloadFile/{invoice_number}/{file_name}',[InvoicesAttachmentsController::class,'DownloadFile'])->name('invoice_attachment.DownloadFile');
 
 
-//
+//reports_invoice
+
+Route::get('invoice_report',[InvoiceReportsController::class,'index'])->name('invoice_report');
+
+Route::post('Search_invoices',[InvoiceReportsController::class,'Search_invoices'])->name('Search_invoices');
+
+Route::get('customer_report',[CustomerReportsController::class,'index'])->name('customer_report');
+Route::get('search_customer',[CustomerReportsController::class,'search'])->name('search_customer');
+// Route::post('Search_customer',[CustomerReportsController::class,'Search_customer'])->name('Search_customer');
 
 Route::resource('users', UserController::class)->middleware('auth');
 Route::resource('roles', RoleController::class)->middleware('auth');
