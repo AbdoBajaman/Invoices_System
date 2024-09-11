@@ -131,7 +131,10 @@ return [
 //     /*
 //      * Package Service Providers...
 //      */
+//     // \Fx3costa\Laravelchartjs\ChartjsServiceProvider::class,
+
 //     Maatwebsite\Excel\ExcelServiceProvider::class,
+
 // ]
 
 ];

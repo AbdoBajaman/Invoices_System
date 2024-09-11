@@ -20,7 +20,7 @@ class SectionsController extends Controller implements HasMiddleware
     {
         return [
             new Middleware ('permission:الاقسام', only:['index']),
-            new Middleware ('permission:تعديل فسم', only:['edit','update']),
+            new Middleware ('permission:تعديل قسم', only:['edit','update']),
 
             new Middleware('permission:اضافة قسم', only:['create', 'store']),
             // new Middleware('permission:تعديل مستخدم', ['only' => ['edit', 'update']]),

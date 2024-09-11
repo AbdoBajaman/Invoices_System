@@ -71,21 +71,25 @@
                     <div class="row mg-b-20">
                         <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
                             <label>كلمة المرور: <span class="tx-danger">*</span></label>
-                            <input type="password" name="password" class="form-control" required>
+                            <input type="password" name="password" class="form-control" >
                         </div>
 
                         <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
                             <label>تأكيد كلمة المرور: <span class="tx-danger">*</span></label>
-                            <input type="password" name="confirm-password" class="form-control" required>
+                            <input type="password" name="confirm-password" class="form-control" >
                         </div>
                     </div>
 
                     <div class="row row-sm mg-b-20">
                         <div class="col-lg-6">
                             <label class="form-label">حالة المستخدم</label>
-                            <select name="Status" id="select-beast" class="form-control nice-select custom-select">
-                                <option value="مفعل" {{ $user->Status === 'مفعل' ? 'selected' : '' }}>مفعل</option>
-                                <option value="غير مفعل" {{ $user->Status === 'غير مفعل' ? 'selected' : '' }}>غير مفعل</option>
+                            <select name="is_active" id="select-beast" class="form-control nice-select custom-select">
+                                <option value="1" {{ $user->is_active == 1 ? 'selected' : '' }}>
+                                   مفعل
+                                </option>
+                                <option value="0" {{ $user->is_active == 0 ? 'selected' : '' }}>
+                                    غير مفعل
+                                </option>
                             </select>
                         </div>
                     </div>
