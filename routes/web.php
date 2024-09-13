@@ -45,6 +45,10 @@ Route::middleware([
         return redirect()->route('login');
     })->name('logoutt');
 });
+Route::get('profile', function () {
+    return view('profile');
+
+})->name('profile')->middleware('auth');
 // Route::get('HomePage', function () {
 //     return view('index');
 
@@ -108,6 +112,7 @@ Route::controller(InvoicesController::class)->group(function () {
 
     Route::post('status_update/{id}','status_update')->name('status_update');
     Route::get('print_invoice/{id}','print_invoice')->name('print_invoice');
+    Route::get('mark_Read_all','mark_Read_all')->name('mark_Read_all');
     // Route::get('users/export/', [UsersController::class, 'export']);
     // Route::get('invoices/export/','export')->name('export_Excel');
 

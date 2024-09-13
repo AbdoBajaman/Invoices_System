@@ -3,7 +3,7 @@
 <title>   @yield('title') </title>
 <link rel="stylesheet" href={{asset('assets/css/alerts.css')}}>
 <!-- Favicon -->
-<link rel="icon" href="{{URL::asset('assets/img/brand/favicon.png')}}" type="image/x-icon"/>
+<link rel="icon" href="{{URL::asset('assets/img/fatortk.png')}}" type="image/x-icon">
 <!-- Icons css -->
 <link href="{{URL::asset('assets/css/icons.css')}}" rel="stylesheet">
 <!--  Custom Scroll bar-->

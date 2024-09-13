@@ -12,13 +12,16 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Facades\Storage;
 use File;
+use Illuminate\Support\Facades\DB;
+
 // use App\Models\invoices_details;
 class InvoicesDetailsController extends Controller implements HasMiddleware
 {
 
-    public static function middleware(){
+    public static function middleware()
+    {
         return [
-            new Middleware('permission:عرض تفاصيل الفاتورة',only:['show']),
+            new Middleware('permission:عرض تفاصيل الفاتورة', only: ['show']),
 
         ];
     }
@@ -60,21 +63,19 @@ class InvoicesDetailsController extends Controller implements HasMiddleware
         $attachment_count = invoices_attachments::where('Invoice_Id', $id)->count();
         // $invoice_details= invoices_details::latest()->where('invoice_number', $invoices->invoice_number)->first();
 
-        $latest_invoice_details = invoices_details::latest()->where('invoice_number',$invoices->invoice_number)->first(['payed_value','invoice_number']);
-// dd($latest_invoice_details);
+        $latest_invoice_details = invoices_details::latest()->where('invoice_number', $invoices->invoice_number)->first(['payed_value', 'invoice_number']);
+        // dd($latest_invoice_details);
         // dd(''.$invoice_details->());
-        $invoice_attachments = invoices_attachments::where('Invoice_Id', $id)->get();
-        if($attachment_count == 0){
-            // dd('found')
-            // dd($details_count .''. $details_count .$invoice_details);
-            return view('Invoices.invoice_details', compact('invoices', 'invoice_details', 'details_count','attachment_count','latest_invoice_details'));
+        // $notification = DB::table('notifications')->where('data->invoice_id', $id)->first();
+        DB::table('notifications')->where('data->invoice_id', $id)->update(['read_at' => now()]);
 
-        }
-        else{
+        $invoice_attachments = invoices_attachments::where('Invoice_Id', $id)->get();
+        if ($attachment_count == 0) {
+            return view('Invoices.invoice_details', compact('invoices', 'invoice_details', 'details_count', 'attachment_count', 'latest_invoice_details'));
+        } else {
             // dd('1');
             // dd('    1');
-            return view('Invoices.invoice_details', compact('invoices', 'invoice_details', 'invoice_attachments', 'details_count','attachment_count','latest_invoice_details'));
-
+            return view('Invoices.invoice_details', compact('invoices', 'invoice_details', 'invoice_attachments', 'details_count', 'attachment_count', 'latest_invoice_details'));
         }
         // if($attachment_count ==0)
         // {
@@ -109,7 +110,4 @@ class InvoicesDetailsController extends Controller implements HasMiddleware
     {
         //
     }
-
-
-
 }

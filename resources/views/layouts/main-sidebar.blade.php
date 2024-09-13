@@ -2,15 +2,16 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar sidebar-scroll">
     <div class="main-sidebar-header active">
-        <a class="desktop-logo logo-light active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/logo.png') }}" class="main-logo" alt="logo"></a>
-        <a class="desktop-logo logo-dark active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/logo-white.png') }}" class="main-logo dark-theme"
+        <a class="desktop-logo logo-light active" href="HomePage">
+            <img
+                src="{{ URL::asset('assets/img/fatortk.png') }}" class="main-logo" alt="logo"></a>
+        <a class="desktop-logo logo-dark active" href="HomePage"><img
+                src="{{ URL::asset('assets/img/fatortk.png') }}" class="main-logo dark-theme"
                 alt="logo"></a>
-        <a class="logo-icon mobile-logo icon-light active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/favicon.png') }}" class="logo-icon" alt="logo"></a>
-        <a class="logo-icon mobile-logo icon-dark active" href="{{ url('/' . ($page = 'index')) }}"><img
-                src="{{ URL::asset('assets/img/brand/favicon-white.png') }}" class="logo-icon dark-theme"
+        <a class="logo-icon mobile-logo icon-light active" href="HomePage"><img
+                src="{{ URL::asset('assets/img/fatortk.png') }}" class="logo-icon" alt="logo"></a>
+        <a class="logo-icon mobile-logo icon-dark active" href="HomePage"><img
+                src="{{ URL::asset('assets/img/fatortk.png') }}" class="logo-icon dark-theme"
                 alt="logo"></a>
     </div>
     <div class="main-sidemenu">
@@ -197,7 +198,7 @@
                         </svg><span class="side-menu__label">الاعدادات</span><i class="angle fe fe-chevron-down"></i></a>
                     <ul class="slide-menu">
                         @can('الاقسام')
-                            <li><a class="slide-item" href="{{ route('sections.index') }}">الأقسام</a></li>
+                            <li><a class="slide-item" href="{{ route('sections.index') }}">العملاء</a></li>
                         @endcan
                         @can('المنتجات')
                             <li><a class="slide-item" href="{{ route('products.index') }}">المنتجات</a></li>
