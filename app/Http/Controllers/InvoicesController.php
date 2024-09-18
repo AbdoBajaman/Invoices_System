@@ -39,7 +39,7 @@ class InvoicesController extends Controller implements HasMiddleware
 
             // new Middleware('permission:عرض تفاصيل الفاتورة', only : ['show']),
 
-            new Middleware('permission:طباعةالفاتورة', only: ['print_invoice']),
+            new Middleware('permission:طباعة الفاتورة', only: ['print_invoice']),
 
 
         ];

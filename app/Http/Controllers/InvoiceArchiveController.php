@@ -13,7 +13,9 @@ class InvoiceArchiveController extends Controller implements HasMiddleware
         return [
             new Middleware('permission:استرجاع الارشفة',only:['update']),
             new Middleware('permission:حذف الارشفة',only:['destroy']),
-            new Middleware('permission:الفواتير المؤرشفة',only:['index']),
+            // new Middleware('permission:الفواتير المؤرشفة',only:['index']),
+            new Middleware('permission:ارشفة الفاتورة',only:['index']),
+
 
 
         ];

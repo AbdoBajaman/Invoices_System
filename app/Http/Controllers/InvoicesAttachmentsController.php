@@ -14,7 +14,7 @@ class InvoicesAttachmentsController extends Controller implements HasMiddleware
     public static function middleware(){
         return [
             new Middleware('permission:اضافة مرفق', only: ['store']),
-            new Middleware('permission:حذف مرفق', only: ['destroy']),
+            new Middleware('permission:حذف المرفق', only: ['destroy']),
 
 
         ] ;

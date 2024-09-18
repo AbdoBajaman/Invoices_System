@@ -85,7 +85,7 @@
                 @can('اضافة قسم')
                     <div class="col-sm-6 col-md-4 col-xl-3 mg-t-20 mg-xl-t-0">
                         <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-newspaper"
-                            data-toggle="modal" href="#modaldemo8">اضافه قسم</a>
+                            data-toggle="modal" href="#modaldemo8">اضافه عميل</a>
                     </div>
                 @endcan
 
@@ -102,7 +102,7 @@
                             <thead>
                                 <tr>
                                     <th class="border-bottom-0">#</th>
-                                    <th class="border-bottom-0">اسم القسم</th>
+                                    <th class="border-bottom-0">اسم العميل</th>
                                     <th class="border-bottom-0">الوصف</th>
                                     <th class="border-bottom-0">المنشى</th>
                                     <th class="border-bottom-0"> العمليات</th>
@@ -172,7 +172,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">تعديل القسم</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">تعديل العميل</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -184,7 +184,7 @@
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="id" id="id" value="">
-                                <label for="recipient-name" class="col-form-label">اسم القسم:</label>
+                                <label for="recipient-name" class="col-form-label">اسم العميل:</label>
                                 <input class="form-control" name="section_name" id="section_name" type="text">
                             </div>
                             <div class="form-group">
@@ -205,7 +205,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">اضافه قسم</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">اضافه عميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
                         type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -213,7 +213,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">اسم القسم</label>
+                            <label for="exampleInputEmail1">اسم العميل</label>
                             <input type="text" class="form-control" id="section_name" name="section_name">
                         </div>
 
@@ -290,7 +290,7 @@
             event.preventDefault();
 
             Swal.fire({
-                title: "هل انت متأكد من حذف القسم " +
+                title: "هل انت متأكد من حذف العميل " +
                     `<span class="text-danger font-weight-bold">${sectionName || 'لا يوجد'}</span>؟`,
                 text: 'لن تتمكن من التراجع عن هذا الإجراء!',
 
