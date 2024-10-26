@@ -106,7 +106,7 @@
                                 <tr>
                                     <th class="border-bottom-0">#</th>
                                     <th class="border-bottom-0">اسم المنتج</th>
-                                    <th class="border-bottom-0">القسم</th>
+                                    <th class="border-bottom-0">العميل</th>
                                     <th class="border-bottom-0">ملاحظات</th>
                                     <th class="border-bottom-0"> العمليات</th>
 
@@ -231,9 +231,9 @@
                             </div>
 
 
-                            <label class="mr-2 my-1" for="exampleInputEmail1">اسم القسم</label>
+                            <label class="mr-2 my-1" for="exampleInputEmail1">اسم العميل</label>
                             <select required class="form-control" name="section_name" id="section_name">
-                                <option value="" disabled>اختر القسم</option>
+                                <option value="" disabled>اختر العميل</option>
 
                                 @foreach ($sections as $section) {{-- Use a singular variable to avoid confusion --}}
                                     <option value="{{ $section->section_name  ?? 'لايوجد'}}">
@@ -283,10 +283,10 @@
                                 <label for="recipient-name" class="col-form-label">اسم المنتج:</label>
                                 <input class="form-control" name="product_name" id="product_name" type="text">
                             </div>
-                            <label class="mr-2 my-1" for="exampleInputEmail1">اسم القسم</label>
+                            <label class="mr-2 my-1" for="exampleInputEmail1">اسم العميل</label>
 
                             <select required class="form-control" name="section_name" id="section_name">
-                            <option value="" disabled>اختر القسم</option>
+                            <option value="" disabled>اختر العميل</option>
                             @foreach ($sections as $sections)
                                 <option value="{{ $sections->section_name }}">
                                     {{ $sections->section_name }}
@@ -372,7 +372,7 @@
             event.preventDefault();
 
             Swal.fire({
-                title: "هل انت متأكد من حذف القسم " +
+                title: "هل انت متأكد من حذف المنتج " +
                     `<span class="text-danger font-weight-bold">${productName || 'لا يوجد'}</span>؟`,
                 text: 'لن تتمكن من التراجع عن هذا الإجراء!',
 

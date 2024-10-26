@@ -8,46 +8,41 @@ use Illuminate\Http\Request;
 
 class CustomerReportsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $sections = sections::all();
-        return view('reports.customer_reports',compact('sections'));
-
-      }
-
-
-      public function search(Request $request){
+        return view('reports.customer_reports', compact('sections'));
+    }
 
 
-  // في حالة البحث بدون التاريخ
+    public function search(Request $request)
+    {
 
 
-       if ($request->Section && $request->product && $request->start_at =='' && $request->end_at=='') {
+        // في حالة البحث بدون التاريخ
 
 
-        $invoices = invoices::select('*')->where('section_id','=',$request->Section)->where('product','=',$request->product)->get();
-        $sections = sections::all();
-         return view('reports.customer_reports',compact('sections'))->withDetails($invoices);
+        // todo && same and operator also || same or operator but those &&,|| has the precedence الأولويه
+        if ($request->Section && $request->product && $request->start_at == '' && $request->end_at == '') {
 
 
-       }
+            $invoices = invoices::select('*')->where('section_id', '=', $request->Section)->where('product', '=', $request->product)->get();
+            $sections = sections::all();
+            return view('reports.customer_reports', compact('sections'))->withDetails($invoices);
+        }
 
 
-    // في حالة البحث بتاريخ
+        // في حالة البحث بتاريخ
 
-       else {
+        else {
 
-         $start_at = date($request->start_at);
-         $end_at = date($request->end_at);
+            $start_at = date($request->start_at);
+            $end_at = date($request->end_at);
 
-        $invoices = invoices::whereBetween('invoice_date',[$start_at,$end_at])->where('section_id','=',$request->Section)->where('product','=',$request->product)->get();
-         $sections = sections::all();
-         return view('reports.customer_reports',compact('sections'))->withDetails($invoices);
-
-
-       }
-
-
-
-      }
+            $invoices = invoices::whereBetween('invoice_date', [$start_at, $end_at])->where('section_id', '=', $request->Section)->where('product', '=', $request->product)->get();
+            $sections = sections::all();
+            return view('reports.customer_reports', compact('sections'))->withDetails($invoices);
+        }
+    }
 }

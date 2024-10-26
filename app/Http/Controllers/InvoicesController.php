@@ -43,7 +43,7 @@ class InvoicesController extends Controller implements HasMiddleware
 
             // new Middleware('permission:عرض تفاصيل الفاتورة', only : ['show']),
 
-            new Middleware('permission:طباعةالفاتورة', only: ['print_invoice']),
+            new Middleware('permission:طباعة الفاتورة', only: ['print_invoice']),
 
 
         ];
@@ -380,6 +380,9 @@ class InvoicesController extends Controller
             'note' => $request->note,
             'user' => auth()->user()->name,
         ]);
+      
+
+
         // if($request->hasFile('pic')){
         //     $file = $request->file('pic');
         //     //! this is get the all file name like image.png
