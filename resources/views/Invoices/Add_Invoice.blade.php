@@ -121,7 +121,7 @@
 
                             <div class="col-md-4 col-sm-4">
                                 <label for="inputName" class="control-label">نسبة ضريبة القيمة المضافة</label>
-                                <select name="rate_tax" id="rate_tax" class="form-control" onchange="myFunction()">
+                                <select required name="rate_tax" id="rate_tax" class="form-control" onchange="myFunction()">
                                     <!--placeholder-->
                                     <option value="" selected disabled>حدد نسبة الضريبة</option>
                                     <option value=" 0%">0%</option>
@@ -284,7 +284,7 @@
              else {
 
                 var intResults = Amount_Commission2 * rate_tax / 100;
-                
+
 
                 var intResults2 = parseFloat(intResults + Amount_Commission2);
 

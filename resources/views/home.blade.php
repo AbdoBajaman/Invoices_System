@@ -55,7 +55,18 @@
                             </div>
                             <span class="float-right my-auto mr-auto">
                                 <i class="fas fa-arrow-circle-up text-white"></i>
-                                <span class="text-white op-7">100%</span>
+                                <span class="text-white op-7">
+                                    @php
+                                        $count_all = \App\Models\invoices::count();
+                                        // echo $count_all;
+                                        if ($count_all == 0) {
+                                            echo $x = 0;
+                                        } else {
+                                            echo $x = (($count_all / $count_all) * 100) .'%';
+                                        }
+
+                                    @endphp
+                                </span>
                             </span>
                         </div>
                     </div>
@@ -92,7 +103,7 @@
                                         if ($count_invoices2 == 0) {
                                             echo $count_invoices2 = 0;
                                         } else {
-                                            echo $count_invoices2 = ($count_invoices2 / $count_all) * 100;
+                                            echo $count_invoices2 = ($count_invoices2 / $count_all) * 100 .'%';
                                         }
                                     @endphp
 
@@ -132,7 +143,7 @@
                                         if ($count_invoices1 == 0) {
                                             echo $count_invoices1 = 0;
                                         } else {
-                                            echo $count_invoices1 = ($count_invoices1 / $count_all) * 100;
+                                            echo $count_invoices1 = ($count_invoices1 / $count_all) * 100 .'%';
                                         }
                                     @endphp
                                 </span>
@@ -171,7 +182,7 @@
                                         if ($count_invoices1 == 0) {
                                             echo $count_invoices1 = 0;
                                         } else {
-                                            echo $count_invoices1 = ($count_invoices1 / $count_all) * 100;
+                                            echo $count_invoices1 = ($count_invoices1 / $count_all) * 100 .'%';
                                         }
                                     @endphp
                                 </span>
@@ -255,7 +266,8 @@
             type: 'doughnut',
             data: {
                 labels: ['الفواتير المدفوعة', 'الفواتير الغير مدفوعة', 'الفواتير المدفوعة جزئيا',
-                    'اجمالي الفواتير'],
+                    'اجمالي الفواتير'
+                ],
                 datasets: [{
                     label: 'احصائيات الفواتير',
                     data: [{{ $nspainvoices1 }}, {{ $nspainvoices2 }}, {{ $nspainvoices3 }},
@@ -301,7 +313,7 @@
         const s = document.getElementById('myLineChart');
 
         new Chart(s, {
-            type: 'line', // Change to 'line' for a line chart
+            type: 'bar', // Change to 'line' for a line chart
             data: {
                 labels: [
                     @foreach ($sectionProductCounts as $section)
@@ -336,13 +348,10 @@
                                     label += ': ';
                                 }
                                 if (context.raw !== null) {
-                                    if(context.raw < 2){
+                                    if (context.raw < 2) {
                                         label += context.raw + ' منتج';
 
-                                    }
-
-
-                                    else{
+                                    } else {
                                         label += context.raw + 'منتجات';
 
                                     }

@@ -4,7 +4,7 @@
         <span>
             حقوق محفوظه © <span id="currentYear"></span>
             <a href="#">فاتورتك</a>. تم التطوير بواسطه
-            <a href="https://www.spruko.com/">عبدالرحمن باجعمان</a>
+            <a href="https://www.linkedin.com/in/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87-1ab97b302/)">عبدالرحمن باجعمان</a>
         </span>
     </div>
 </div>

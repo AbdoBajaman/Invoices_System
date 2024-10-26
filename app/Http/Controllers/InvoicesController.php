@@ -30,20 +30,20 @@ class InvoicesController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware ('permission:قائمة الفواتير', only:['index']),
+            new Middleware('permission:قائمة الفواتير', only: ['index']),
             new Middleware('permission:الفواتير المدفوعة', only: ['payed_invoice']),
-            new Middleware('permission:الفواتير المدفوعة جزئيا', only:['partially_paid_invoices']),
-            new Middleware('permission:الفواتير الغير مدفوعة', only : ['Due_invoices']),
+            new Middleware('permission:الفواتير المدفوعة جزئيا', only: ['partially_paid_invoices']),
+            new Middleware('permission:الفواتير الغير مدفوعة', only: ['Due_invoices']),
 
-            new Middleware ('permission:تغير حالة الدفع', only:['status_show','status_update']),
-            new Middleware('permission:تصدير EXCEL', only : ['export']),
+            new Middleware('permission:تغير حالة الدفع', only: ['status_show', 'status_update']),
+            new Middleware('permission:تصدير EXCEL', only: ['export']),
             new Middleware('permission:تعديل الفاتورة', only: ['edit', 'update']),
             new Middleware('permission:حذف الفاتورة', only: ['destroy']),
             new Middleware('permission:اضافة فاتورة', only: ['create', 'store']),
 
             // new Middleware('permission:عرض تفاصيل الفاتورة', only : ['show']),
 
-            new Middleware('permission:طباعةالفاتورة', only :['print_invoice']),
+            new Middleware('permission:طباعةالفاتورة', only: ['print_invoice']),
 
 
         ];
@@ -188,10 +188,11 @@ class InvoicesController extends Controller
 
 
 
-          $user=$invoice_details->user;
+        $user = $invoice_details->user;
         //   dd($user);
         // Debug the result
         // dd($superAdmins);
+<<<<<<< HEAD
 //
 <<<<<<< HEAD
     // dd($invoice);
@@ -201,6 +202,12 @@ class InvoicesController extends Controller
 >>>>>>> V3
      //! Send notification via email
         Notification::send($super_Admins,new Add_invoice($invoice,$user) );
+=======
+        //
+        // dd($invoice->id);
+        //! Send notification via email
+        Notification::send($super_Admins, new Add_invoice($invoice, $user));
+>>>>>>> V4
         // Notification::send($admin,new invoice_notification($invoice));
 =======
         Notification::send($admin,new invoice_notification($invoice));
@@ -475,18 +482,36 @@ class InvoicesController extends Controller
 
         return response()->json(['Products' => $products], 200);
     }
-    public function print_invoice($id){
-        $invoice=invoices::where('id', $id)->first();
-        $invoice_details=invoices_details::latest()->where('Invoice_Id', $id)->first();
+    public function print_invoice($id)
+    {
+        $invoice = invoices::where('id', $id)->first();
+        $invoice_details = invoices_details::latest()->where('Invoice_Id', $id)->first();
 
-        return view('Invoices.print_invoice', compact('invoice','invoice_details'));
+        return view('Invoices.print_invoice', compact('invoice', 'invoice_details'));
     }
+<<<<<<< HEAD
     public function export(){
 <<<<<<< HEAD
         $s=Role::all();
 =======
 >>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
         return Excel::download(new InvoiceExport,'invoices.xlsx');
+=======
+    public function export()
+    {
+        $s = Role::all();
+        return Excel::download(new InvoiceExport, 'invoices.xlsx');
+>>>>>>> V4
     }
 
+    //read all notification
+    public function mark_Read_all()
+    {
+
+        $user_notification = auth()->user()->unreadNotifications;
+        if ($user_notification) {
+            $user_notification->markAsRead();
+        }
+        return redirect()->back();
+    }
 }
