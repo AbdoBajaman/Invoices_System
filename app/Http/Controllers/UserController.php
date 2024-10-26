@@ -104,6 +104,7 @@ class UserController extends Controller implements HasMiddleware
         $user = User::find($id);
         $roles = Role::pluck('name', 'name')->all();
 
+        // dd($user);
         $userRole = $user->roles->pluck('name', 'name')->all();
         // dd($userRole);
         // return view('users.edit_user');
@@ -130,10 +131,9 @@ class UserController extends Controller implements HasMiddleware
             ]);
 
         $input = $request->all();
-        if (!empty($input['password'])) {
-            // dd('2');
-            $input['password'] = Hash::make($input['password']);
-        }
+
+        // dd($input);
+
         //  else {
         //     // dd('1');
         //     // $input = array_except($input, array('password'));
@@ -141,12 +141,28 @@ class UserController extends Controller implements HasMiddleware
         $user = User::find($id);
         // dd($input);
         DB::table('model_has_roles')->where('model_id', $id)->delete();
-        $user->update([
-            'name'=> $input['name'],
-            'email'=> $input['email'],
-            'password'=> $input['password'],
-            'roles_name'=> $input['roles'],
-        ]);
+        if ($request->password == "") {
+
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'roles_name' => $input['roles'],
+                'is_active' => $input['is_active'],
+
+
+            ]);
+
+        } else {
+            $input['password'] = Hash::make($input['password']);
+
+            $user->update($input);
+        }
+        // $user->update([
+        //     'name'=> $input['name'],
+        //     'email'=> $input['email'],
+        //     'password'=> $input['password'],
+        //     'roles_name'=> $input['roles'],
+        // ]);
 
         $user->assignRole($input['roles']);
         return redirect()->route('users.index')

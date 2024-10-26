@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerReportsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceArchiveController;
 use App\Http\Controllers\InvoiceReportsController;
 use App\Http\Controllers\InvoicesAttachmentsController;
@@ -30,6 +31,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('HomePage',[HomeController::class,'index'])->name('homepage')->middleware('auth');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -38,9 +40,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 =======
 >>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
         return view('index');
+=======
+        return redirect()->route('homepage');
+>>>>>>> V3
     })->name('dashboard');
     Route::get('/logout', function (Request $request) {
         auth::guard('web')->logout();

@@ -10,6 +10,7 @@ use App\Models\invoices_details;
 use App\Models\products;
 use App\Models\sections;
 use App\Models\User;
+use App\Notifications\Add_invoice;
 use App\Notifications\invoice_notification;
 use Illuminate\Http\Request;
 <<<<<<< HEAD
@@ -180,13 +181,26 @@ class InvoicesController extends Controller
 
         }
         // dd(auth()->user()->name );
-        $user=auth()->user()->name;
-        $admin=User::first();
+        // $user=auth()->user()->name;
+        // $admin=User::first();
         // dd($admin);
+        $super_Admins = User::whereJsonContains('roles_name', 'Super_Admin')->get();
+
+
+
+          $user=$invoice_details->user;
+        //   dd($user);
+        // Debug the result
+        // dd($superAdmins);
 //
+<<<<<<< HEAD
     // dd($invoice);
 <<<<<<< HEAD
+=======
+    // dd($invoice->id);
+>>>>>>> V3
      //! Send notification via email
+        Notification::send($super_Admins,new Add_invoice($invoice,$user) );
         // Notification::send($admin,new invoice_notification($invoice));
 =======
         Notification::send($admin,new invoice_notification($invoice));
