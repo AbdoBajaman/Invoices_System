@@ -143,7 +143,7 @@ class InvoicesController extends Controller
             'invoice_number' => $request->invoice_number,
             'product' => $request->product,
             'Section' => $section_name,
-            'status' => 'غير مدفوعه',
+            'status' => 'غير مدفوعة',
             'value_status' => 2,
             'note' => $request->note,
             'user' => auth()->user()->name,
