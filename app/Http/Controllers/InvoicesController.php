@@ -344,6 +344,9 @@ class InvoicesController extends Controller implements HasMiddleware
             'note' => $request->note,
             'user' => auth()->user()->name,
         ]);
+      
+
+
         // if($request->hasFile('pic')){
         //     $file = $request->file('pic');
         //     //! this is get the all file name like image.png
