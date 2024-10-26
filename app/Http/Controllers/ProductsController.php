@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\products;
 use App\Models\sections;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -26,6 +27,11 @@ class ProductsController extends Controller implements HasMiddleware
 
 
 
+=======
+
+class ProductsController extends Controller
+{
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     /**
      * Display a listing of the resource.
      */

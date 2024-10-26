@@ -6,16 +6,23 @@ use App\Http\Controllers\InvoicesAttachmentsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\InvoicesDetailsController;
 use App\Http\Controllers\ProductsController;
+<<<<<<< HEAD
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\UserController;
+=======
+use App\Http\Controllers\SectionsController;
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+<<<<<<< HEAD
 use Spatie\Permission\Models\Permission;
 
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -27,7 +34,10 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
         return view('index');
     })->name('dashboard');
     Route::get('/logout', function (Request $request) {
@@ -63,10 +73,13 @@ Route::get('view_file/{invoice_number}/{file_name}',[InvoicesAttachmentsControll
 Route::get('DownloadFile/{invoice_number}/{file_name}',[InvoicesAttachmentsController::class,'DownloadFile'])->name('invoice_attachment.DownloadFile');
 
 
+<<<<<<< HEAD
 //
 
 Route::resource('users', UserController::class)->middleware('auth');
 Route::resource('roles', RoleController::class)->middleware('auth');
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
 
 // Route::get('Invoice/details',InvoicesController::class,'Show_Details');
 // Route::resource('Invoices', InvoicesController::class)->names([

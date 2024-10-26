@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\invoices;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -18,6 +19,11 @@ class InvoiceArchiveController extends Controller implements HasMiddleware
 
         ];
     }
+=======
+
+class InvoiceArchiveController extends Controller
+{
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     /**
      * Display a listing of the resource.
      */
@@ -63,8 +69,11 @@ class InvoiceArchiveController extends Controller implements HasMiddleware
     /**
      * Update the specified resource in storage.
      */
+<<<<<<< HEAD
 
      //استرجاع الفاتوره
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     public function update(Request $request)
     {
         // dd($request->all());

@@ -82,6 +82,7 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card mg-b-20">
+<<<<<<< HEAD
                 @can('اضافة قسم')
                     <div class="col-sm-6 col-md-4 col-xl-3 mg-t-20 mg-xl-t-0">
                         <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-newspaper"
@@ -89,6 +90,12 @@
                     </div>
                 @endcan
 
+=======
+                <div class="col-sm-6 col-md-4 col-xl-3 mg-t-20 mg-xl-t-0">
+                    <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-newspaper"
+                        data-toggle="modal" href="#modaldemo8">اضافه قسم</a>
+                </div>
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                 {{-- <div class="card-header pb-0">
                                 <div class="d-flex justify-content-between">
                                     <h4 class="card-title mg-b-0">Bordered Table</h4>
@@ -122,6 +129,7 @@
                                         <td>{{ $section->description }}</td>
                                         <td>{{ $section->created_by }}</td>
                                         <td class=''>
+<<<<<<< HEAD
                                             @can('تعديل قسم')
                                                 <a class=" btn  btn-outline-warning" data-effect="effect-scale"
                                                     data-id="{{ $section->id }}"
@@ -143,6 +151,23 @@
                                                 </form>
                                             @endcan
 
+=======
+                                            <a class=" btn  btn-outline-warning" data-effect="effect-scale"
+                                                data-id="{{ $section->id }}"
+                                                data-section_name="{{ $section->section_name }}"
+                                                data-description="{{ $section->description }}" data-toggle="modal"
+                                                href="#exampleModal2" title="تعديل">تعديل</a>
+                                            <form id="delete-form-{{ $section->id }}"
+                                                action="{{ route('sections.destroy', $section->id) }}" method="POST"
+                                                style="display: inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button  type="button" class="btn btn-outline-danger"
+                                                    onclick="confirmDelete('{{ $section->id }}', '{{ $section->section_name }}')"
+                                                    title="حذف">حذف
+                                                </button>
+                                            </form>
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                                         </td>
 
 
@@ -205,8 +230,13 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
+<<<<<<< HEAD
                     <h6 class="modal-title">اضافه قسم</h6><button aria-label="Close" class="close" data-dismiss="modal"
                         type="button"><span aria-hidden="true">&times;</span></button>
+=======
+                    <h6 class="modal-title">اضافه قسم</h6><button aria-label="Close" class="close"
+                        data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('sections.store') }}" method="post" autocomplete="off">
@@ -303,7 +333,11 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById('delete-form-' + sectionId)
+<<<<<<< HEAD
                         .submit(); // Submit the form with the matching ID
+=======
+                .submit(); // Submit the form with the matching ID
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                 }
             });
         }

@@ -30,8 +30,11 @@ class User extends Authenticatable
         'email',
         'profile_photo_path',
         'password',
+<<<<<<< HEAD
         'is_active',
         'roles_name',
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     ];
 
     /**
@@ -65,7 +68,10 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+<<<<<<< HEAD
             'roles_name'=> 'array',
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
         ];
     }
 }

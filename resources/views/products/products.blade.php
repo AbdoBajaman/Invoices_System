@@ -79,13 +79,19 @@
         <div class="col-xl-12">
             <div class="card mg-b-20">
 
+<<<<<<< HEAD
                 @can('اضافة منتج')
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                 <div class="col-sm-6 col-md-4 col-xl-3 mg-t-20 mg-xl-t-0">
                     <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-newspaper"
                         data-toggle="modal" href="#modaldemo8">اضافه منتج</a>
                 </div>
+<<<<<<< HEAD
                 @endcan
 
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                 {{-- <div class="card-header pb-0">
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="card-title mg-b-0">Bordered Table</h4>
@@ -120,6 +126,7 @@
                                         <td class=""> {{ $products->description }}</td>
 
                                         <td class=''>
+<<<<<<< HEAD
 
                                             @can('تعديل منتج')
                                             <a class=" btn btn-outline-warning " data-effect="effect-scale"
@@ -131,6 +138,14 @@
                                             @endcan
 
                                             @can('حذف منتج')
+=======
+                                            <a class=" btn btn-outline-warning " data-effect="effect-scale"
+                                                data-id="{{ $products->id }}"
+                                                data-product_name="{{ $products->product_name }}"
+                                                data-description="{{ $products->description }}"
+                                                data-section_name="{{ $products->sections->section_name }}"
+                                                data-toggle="modal" href="#exampleModal2" title="تعديل">تعديل</a>
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                                             <form id="delete-form-{{$products->id}}" action="{{route('products.destroy',$products->id)}}" method="POST" style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
@@ -138,8 +153,11 @@
                                                     title="حذف">حذف
                                                 </button>
                                             </form>
+<<<<<<< HEAD
                                             @endcan
 
+=======
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                                         </td>
 
 
@@ -367,7 +385,11 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById('delete-form-' + productId)
+<<<<<<< HEAD
                         .submit();
+=======
+                        .submit(); 
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
                 }
             });
         }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +65,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+To run this system plz go to latest version then 
+
+go to termenal
+
+1- php artisan migrate
+
+2 - php artisan db:seed 
+
+
+there is account admin default
+
+email:bajamanabdo@gmail.com
+password:123456789
+
+Enjoy ...
+>>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
