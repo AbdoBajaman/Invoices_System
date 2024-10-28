@@ -1,0 +1,125 @@
+<!-- main-header opened -->
+			<div class="main-header sticky side-header nav nav-item">
+				<div class="container-fluid">
+					<div class="main-header-left ">
+						<div class="responsive-logo">
+							<a href="HomePage"><img style="width: 70px;height:35px" src="<?php echo e(URL::asset('assets/img/fatortk.png')); ?>" class="logo-1" alt="logo"></a>
+							<a href="HomePage"><img src="<?php echo e(URL::asset('assets/img/fatortk.png')); ?>" class="dark-logo-1" alt="logo"></a>
+							<a href="HomePage"><img style="width: 70px;height:35px" src="<?php echo e(URL::asset('assets/img/fatortk.png')); ?>" class="logo-2" alt="logo"></a>
+							<a href="HomePage"><img src="<?php echo e(URL::asset('assets/img/fatortk.png')); ?>" class="dark-logo-2" alt="logo"></a>
+						</div>
+						<div class="app-sidebar__toggle" data-toggle="sidebar">
+							<a class="open-toggle" href="#"><i class="header-icon fe fe-align-left" ></i></a>
+							<a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
+						</div>
+						<div class="main-header-center mr-3 d-sm-none d-md-none d-lg-block">
+							<input class="form-control" placeholder="بحث" type="search"> <button class="btn"><i class="fas fa-search d-none d-md-block"></i></button>
+						</div>
+					</div>
+					<div class="main-header-right">
+						
+						<div class="nav nav-item  navbar-nav-right ml-auto">
+							<div class="nav-link" id="bs-example-navbar-collapse-1">
+								<form class="navbar-form" role="search">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="Search">
+										<span class="input-group-btn">
+											<button type="reset" class="btn btn-default">
+												<i class="fas fa-times"></i>
+											</button>
+											<button type="submit" class="btn btn-default nav-link resp-btn">
+												<svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+											</button>
+										</span>
+									</div>
+								</form>
+							</div>
+							
+                            <div class="dropdown nav-item main-header-notification">
+
+								<a class="new nav-link" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class=" pulse"></span></a>
+								<div class="dropdown-menu">
+
+									<div class="menu-header-content bg-primary text-right">
+										<div class="d-flex">
+											<h6 class="dropdown-title mb-1 tx-15 text-white font-weight-semibold">الاشعارات</h6>
+											<a href="<?php echo e(route('mark_Read_all')); ?>"><span class="badge badge-pill badge-warning mr-auto my-auto float-left">قراءه الكل</span></a>
+										</div>
+
+										<p class="dropdown-title-text subtext mb-0 text-white op-6 pb-0 tx-12 ">عدد الاشعارات الغير مقروءه <?php echo e(auth()->user()->unreadNotifications()->count()); ?></p>
+									</div>
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('الاشعارات')): ?>
+
+									<div class="main-notification-list Notification-scroll">
+                                        <?php $__currentLoopData = auth()->user()->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+										<a class="d-flex p-3 border-bottom" href="<?php echo e(route('invoice_details.show',$notification->data['invoice_id'])); ?>">
+											<div class="notifyimg bg-pink">
+												<i class="la la-file-alt text-white"></i>
+											</div>
+                                            <div class="mr-3">
+												<h5 class="notification-label mb-1"><?php echo e($notification->data['title']); ?>    <?php echo e($notification->data['user']); ?> </h5>
+												<div class="notification-subtext"><?php echo e($notification->created_at); ?></div>
+											</div>
+
+											<div class="mr-auto" >
+
+												<i class=""></i>
+											</div>
+										</a>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+
+
+									</div>
+                                    <?php endif; ?>
+
+                                    <?php if(auth()->user()->unreadNotifications()->count() > 0): ?>
+                                    <div class="dropdown-footer">
+										<a href="<?php echo e(route('invoices.index')); ?>"> عرض الكل</a>
+									</div>
+                                    <?php endif; ?>
+
+								</div>
+							</div>
+
+
+							<div class="nav-item full-screen fullscreen-button">
+								<a class="new nav-link full-screen-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></a>
+							</div>
+							<div class="dropdown main-profile-menu nav nav-item nav-link">
+
+								<a class="profile-user d-flex" href=""><img alt="" src="<?php echo e(auth()->user()->profile_photo_path ? asset('storage/' . auth()->user()->profile_photo_path) : asset('assets/img/faces/6.jpg')); ?>"></a>
+								<div class="dropdown-menu">
+									<div class="main-header-profile bg-primary p-3">
+										<div class="d-flex wd-100p">
+											<div class="main-img-user"><img alt="" src="<?php echo e(auth()->user()->profile_photo_path ? asset('storage/' . auth()->user()->profile_photo_path) : asset('assets/img/faces/6.jpg')); ?>" class=""></div>
+											<div class="mr-3 my-auto">
+												<h6><?php echo e(auth()->user()->name); ?></h6>
+                                                <?php $__currentLoopData = auth()->user()->roles_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                                <span><?php echo e($name); ?></span>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+											</div>
+										</div>
+									</div>
+									<a class="dropdown-item" href="<?php echo e(route('profile')); ?>"><i class="bx bx-user-circle"></i>الملف الشخصي</a>
+									<a class="dropdown-item" href="<?php echo e(route('profile.show')); ?>"><i class="bx bx-cog"></i>تعديل الحساب</a>
+									<a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>صندوق الرسائل</a>
+									
+									
+
+								<form action="<?php echo e(route('logout')); ?>" method="post">
+                                    <a class="dropdown-item" href="<?php echo e(route('logoutt')); ?>"><i class="bx bx-log-out"></i> تسجيل خروج</a>
+                                </form>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+<!-- /main-header -->
+<?php /**PATH C:\Invoice_System\resources\views/layouts/main-header.blade.php ENDPATH**/ ?>
