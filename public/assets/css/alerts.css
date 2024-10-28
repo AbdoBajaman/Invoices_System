@@ -1,9 +1,0 @@
-.hidealert{
-    opacity: 0;
-    /* visibility: hidden; */
-    transition: opacity 1s ease;
-}
-
-.displaynone{
-    display: none;
-}
