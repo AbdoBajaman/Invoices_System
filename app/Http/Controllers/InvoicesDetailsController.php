@@ -6,11 +6,9 @@ use App\Models\invoices_details;
 use Illuminate\Http\Request;
 use App\Models\invoices;
 use App\Models\invoices_attachments;
-<<<<<<< HEAD
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Facades\Storage;
@@ -18,7 +16,6 @@ use File;
 use Illuminate\Support\Facades\DB;
 
 // use App\Models\invoices_details;
-<<<<<<< HEAD
 class InvoicesDetailsController extends Controller implements HasMiddleware
 {
 
@@ -29,10 +26,7 @@ class InvoicesDetailsController extends Controller implements HasMiddleware
 
         ];
     }
-=======
-class InvoicesDetailsController extends Controller
-{
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+
     /**
      * Display a listing of the resource.
      */
@@ -63,10 +57,8 @@ class InvoicesDetailsController extends Controller
     public function show($id)
     {
         //
-<<<<<<< HEAD
         // dd('details');
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+
         $invoices = invoices::find($id);
         $details_count = invoices_details::where('Invoice_Id', $id)->count();
         $invoice_details = invoices_details::where('Invoice_Id', $id)->get();

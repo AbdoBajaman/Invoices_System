@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\invoices_attachments;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Storage;
@@ -20,12 +19,7 @@ class InvoicesAttachmentsController extends Controller implements HasMiddleware
 
         ] ;
     }
-=======
-use Illuminate\Support\Facades\Storage;
 
-class InvoicesAttachmentsController extends Controller
-{
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     /**
      * Display a listing of the resource.
      */

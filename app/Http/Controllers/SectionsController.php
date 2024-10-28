@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\sections;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -13,10 +12,6 @@ use Illuminate\Routing\Controllers\Middleware;
 
 class SectionsController extends Controller implements HasMiddleware
 {
-
-
-
-
     public static function middleware(): array
     {
         return [
@@ -29,15 +24,11 @@ class SectionsController extends Controller implements HasMiddleware
         ];
     }
 
-
-
-=======
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Routing\Controller;
-class SectionsController extends Controller
-{
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+// use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Log;
+// use Illuminate\Routing\Controller;
+// class SectionsController extends Controller
+// {
     /**
      * Display a listing of the resource.
      */

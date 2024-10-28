@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call([
             //             countryseeder::class,
-<<<<<<< HEAD
+
             sectionSeeder::class,
             productSeeder::class,
             // invoicesSeeder::class,
@@ -24,9 +24,7 @@ class DatabaseSeeder extends Seeder
             Create_Admin_User_Seeder::class,
 
             // RoleSeeder::class,
-=======
             invoicesSeeder::class,
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
 
             // citySeeder::class,
         ]);

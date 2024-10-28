@@ -9,23 +9,17 @@ use App\Http\Controllers\InvoicesAttachmentsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\InvoicesDetailsController;
 use App\Http\Controllers\ProductsController;
-<<<<<<< HEAD
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\UserController;
-=======
-use App\Http\Controllers\SectionsController;
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-<<<<<<< HEAD
 use Spatie\Permission\Models\Permission;
 
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -38,15 +32,11 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
-        return view('index');
-=======
+        // return view('index');
+// =======
         return redirect()->route('homepage');
->>>>>>> V3
+// >>>>>>> V3
     })->name('dashboard');
     Route::get('/logout', function (Request $request) {
         auth::guard('web')->logout();
@@ -85,10 +75,9 @@ Route::get('view_file/{invoice_number}/{file_name}',[InvoicesAttachmentsControll
 Route::get('DownloadFile/{invoice_number}/{file_name}',[InvoicesAttachmentsController::class,'DownloadFile'])->name('invoice_attachment.DownloadFile');
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 //
-=======
+
 //reports_invoice
 
 Route::get('invoice_report',[InvoiceReportsController::class,'index'])->name('invoice_report');
@@ -98,12 +87,10 @@ Route::post('Search_invoices',[InvoiceReportsController::class,'Search_invoices'
 Route::get('customer_report',[CustomerReportsController::class,'index'])->name('customer_report');
 Route::get('search_customer',[CustomerReportsController::class,'search'])->name('search_customer');
 // Route::post('Search_customer',[CustomerReportsController::class,'Search_customer'])->name('Search_customer');
->>>>>>> V2
 
 Route::resource('users', UserController::class)->middleware('auth');
 Route::resource('roles', RoleController::class)->middleware('auth');
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+
 
 // Route::get('Invoice/details',InvoicesController::class,'Show_Details');
 // Route::resource('Invoices', InvoicesController::class)->names([

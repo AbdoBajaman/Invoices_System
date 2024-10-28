@@ -15,16 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('product_name',999);
             $table->text('description');
-<<<<<<< HEAD
+
             $table->string('count');
             $table->string('unit');
             $table->unsignedBigInteger('section_id');
             $table->foreign('section_id')->references('id')->on('sections')->cascadeOnDelete();
 
-=======
             $table->unsignedBigInteger('section_id');
             $table->foreign('section_id')->references('id')->on('sections')->cascadeOnDelete();
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
             $table->timestamps();
         });
     }

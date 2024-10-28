@@ -13,16 +13,13 @@ use App\Models\User;
 use App\Notifications\Add_invoice;
 use App\Notifications\invoice_notification;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Maatwebsite\Excel\Facades\Excel;
-<<<<<<< HEAD
 use Spatie\Permission\Models\Role;
 
 class InvoicesController extends Controller implements HasMiddleware
@@ -48,11 +45,7 @@ class InvoicesController extends Controller implements HasMiddleware
 
         ];
     }
-=======
 
-class InvoicesController extends Controller
-{
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     /**
      * Display a listing of the resource.
      */
@@ -192,30 +185,25 @@ class InvoicesController extends Controller
         //   dd($user);
         // Debug the result
         // dd($superAdmins);
-<<<<<<< HEAD
 //
-<<<<<<< HEAD
     // dd($invoice);
-<<<<<<< HEAD
-=======
     // dd($invoice->id);
->>>>>>> V3
+
      //! Send notification via email
         Notification::send($super_Admins,new Add_invoice($invoice,$user) );
-=======
+
         //
         // dd($invoice->id);
-        //! Send notification via email
-        Notification::send($super_Admins, new Add_invoice($invoice, $user));
->>>>>>> V4
+        // //! Send notification via email
+        // Notification::send($super_Admins, new Add_invoice($invoice, $user));
+
         // Notification::send($admin,new invoice_notification($invoice));
-=======
-        Notification::send($admin,new invoice_notification($invoice));
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+        // Notification::send($admin,new invoice_notification($invoice));
+
         // Mail::to('abdo99669@gmail.com')->send(new invoice_notify($invoice));
         // redirect()->route('invoices.index')->with('s', 'تم اضافه فاتوره بنجاح')
         return back()->with('success', 'تم اضافه فاتوره بنجاح');
-        // dd($request->all());
+        // dd($request->all()); 
         // $validate_data=$request->validate([
         //     ''=> 'required',
         //     ''=> '',
@@ -238,7 +226,6 @@ class InvoicesController extends Controller
      */
     public function show($id)
     {
-<<<<<<< HEAD
         // dd('invoice controller');
         // $invoices = invoices::find($id);
         // $details_count = invoices_details::where('Invoice_Id', $id)->count();
@@ -249,7 +236,7 @@ class InvoicesController extends Controller
         // // dd($invoice_attachments);
         // // dd($invoice_details);
         // return view('Invoices.invoice_details', compact('invoices', 'invoice_details', 'invoice_attachments', 'details_count'));
-=======
+
         $invoices = invoices::find($id);
         $details_count = invoices_details::where('Invoice_Id', $id)->count();
         $invoice_details = invoices_details::where('Invoice_Id', $id)->first();
@@ -259,7 +246,6 @@ class InvoicesController extends Controller
         // dd($invoice_attachments);
         // dd($invoice_details);
         return view('Invoices.invoice_details', compact('invoices', 'invoice_details', 'invoice_attachments', 'details_count'));
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
     }
 
     public function status_show($id)
@@ -380,7 +366,7 @@ class InvoicesController extends Controller
             'note' => $request->note,
             'user' => auth()->user()->name,
         ]);
-      
+
 
 
         // if($request->hasFile('pic')){
@@ -492,19 +478,17 @@ class InvoicesController extends Controller
 
         return view('Invoices.print_invoice', compact('invoice', 'invoice_details'));
     }
-<<<<<<< HEAD
-    public function export(){
-<<<<<<< HEAD
-        $s=Role::all();
-=======
->>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
-        return Excel::download(new InvoiceExport,'invoices.xlsx');
-=======
+//     public function export(){
+//         $s=Role::all();
+// =======
+// >>>>>>> 13c1e0c3d1f12f1ecc8641211bcad67a6fabfa5a
+//         return Excel::download(new InvoiceExport,'invoices.xlsx');
+// =======
     public function export()
     {
         $s = Role::all();
         return Excel::download(new InvoiceExport, 'invoices.xlsx');
->>>>>>> V4
+
     }
 
     //read all notification
